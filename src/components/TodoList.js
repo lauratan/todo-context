@@ -4,8 +4,7 @@ const TodoList = (props) => {
   let list = props.todos.map((todo, i) => {
     return (
       <li key={i}>
-        <input type="checkbox" checked={todo.completed}/>
-        {todo.task}
+        <input className="mr-2" type="checkbox" checked={todo.completed}/> {todo.task}
       </li>
     )
   })
