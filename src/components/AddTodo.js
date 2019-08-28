@@ -22,7 +22,7 @@ const AddTodo = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     //TODO: check input - if empty return an error message
-    if (!_.isEmpty(newTodo)) {
+    if (!_.isEmpty(newTodo.task)) {
       context.addTodo(newTodo);
       setNewTodo({
         task: '',
