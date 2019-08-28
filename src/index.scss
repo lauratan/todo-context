@@ -19,3 +19,16 @@ li {
 .todo-heading p {
   color: grey;
 }
+
+.todo-list {
+  i {
+    display: none !important;
+    cursor: pointer;
+  }
+  &:hover {
+    i {
+      display: inline-block !important;
+      color: red;
+    }
+  }
+}
