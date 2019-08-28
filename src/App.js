@@ -1,10 +1,14 @@
-import React, {useReducer } from 'react';
-import {Container} from 'react-bootstrap';
-import AddTodo from './components/AddTodo';
-import TodoList from './components/TodoList';
-import TodoContext from './context/todoContext';
-import todoReducer from './context/todoReducer';
-import {ADD_TODO, TOGGLE_TODO, DELETE_TODO} from './context/types';
+import React, {useReducer} from 'react';
+import {Container}         from 'react-bootstrap';
+import AddTodo             from './components/AddTodo';
+import TodoList            from './components/TodoList';
+import TodoContext         from './context/todoContext';
+import todoReducer         from './context/todoReducer';
+import {
+  ADD_TODO,
+  TOGGLE_TODO,
+  DELETE_TODO
+}                          from './context/types';
 
 const App = () => {
   const initialState = {

@@ -1,15 +1,20 @@
-import React, { useState, useContext } from 'react';
-import {Form, Button} from 'react-bootstrap';
-import uuidv4 from 'uuid/v4';
-import _ from 'lodash';
-import TodoContext from '../context/todoContext';
+import React,
+  {useState, useContext} from 'react';
+import {
+  Form,
+  Button
+}                        from 'react-bootstrap';
+import uuidv4            from 'uuid/v4';
+import {isEmpty}         from 'lodash';
+import TodoContext       from '../context/todoContext';
 
 const AddTodo = () => {
+  const context = useContext(TodoContext);
+
   const [newTodo, setNewTodo] = useState({
     task: '',
     completed: false
   });
-  const context = useContext(TodoContext);
 
   const onChange = (e) => {
     setNewTodo({
@@ -22,7 +27,7 @@ const AddTodo = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     //TODO: check input - if empty return an error message
-    if (!_.isEmpty(newTodo.task)) {
+    if (!isEmpty(newTodo.task)) {
       context.addTodo(newTodo);
       setNewTodo({
         task: '',
