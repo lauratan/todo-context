@@ -4,10 +4,11 @@ import TodoContext from '../context/todoContext';
 
 const TodoList = () => {
   const context = useContext(TodoContext);
+
   const onChange = (id) => {
-    console.log(id);
+    context.toggleTodo(id);
   }
-  
+
   let list = context.todos.map((todo, i) => {
     return (
       <li key={i}>

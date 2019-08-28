@@ -2,7 +2,8 @@ import {createContext} from 'react';
 
 const todoContext = createContext({
   todos: [],
-  addTodo: (todo) => {}
+  addTodo: (todo) => {},
+  toggleTodo: (id) => {}
 })
 
 export default todoContext;

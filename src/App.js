@@ -4,7 +4,7 @@ import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import TodoContext from './context/todoContext';
 import todoReducer from './context/todoReducer';
-import {ADD_TODO} from './context/types';
+import {ADD_TODO, TOGGLE_TODO} from './context/types';
 
 const App = () => {
   const initialState = {
@@ -32,11 +32,19 @@ const App = () => {
     })
   }
 
+  const toggleTodo = (id) => {
+    dispatch({
+      type: TOGGLE_TODO,
+      payload: id
+    })
+  }
+
   return (
     <TodoContext.Provider
       value={{
         todos: state.todos,
-        addTodo
+        addTodo,
+        toggleTodo
       }}
     >
       <Container className="m-3">
