@@ -15,7 +15,7 @@ const TodoList = () => {
 
   let list = context.todos.map((todo, i) => {
     return (
-      <li key={i} className="todo-list">
+      <li key={i} className={`todo-item ${todo.completed ? 'completed': 'incomplete'}`}>
         <input className="mr-2" type="checkbox" checked={todo.completed} onChange={()=> onChange(todo.id)}/> {todo.task} <i className="far fa-trash-alt" onClick={()=> deleteTodo(todo.id)} ></i>
       </li>
     )
@@ -27,7 +27,7 @@ const TodoList = () => {
         <TodoCounter/>
       </div>
       <hr />
-      <ul>
+      <ul className="todo-list">
         {list}
       </ul>
     </div>

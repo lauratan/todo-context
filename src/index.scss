@@ -20,7 +20,7 @@ li {
   color: grey;
 }
 
-.todo-list {
+.todo-item {
   i {
     display: none !important;
     cursor: pointer;
@@ -30,5 +30,11 @@ li {
       display: inline-block !important;
       color: red;
     }
+  }
+}
+
+.todo-list {
+  .completed {
+    text-decoration: line-through; 
   }
 }
