@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import TodoCounter from './TodoCounter';
 
 const TodoList = (props) => {
   let list = props.todos.map((todo, i) => {
@@ -10,7 +11,10 @@ const TodoList = (props) => {
   })
   return (
     <div>
-      <h2>Todo List: </h2>
+      <div className="todo-heading">
+        <h2>Todo List: </h2>
+        <TodoCounter taskCount={props.taskCount} todos={props.todos}/>
+      </div>
       <hr />
       <ul>
         {list}
