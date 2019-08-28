@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {Form, Button} from 'react-bootstrap';
+import uuidv4 from 'uuid/v4';
+import _ from 'lodash';
 
 const AddTodo = (props) => {
   console.log(props);
@@ -7,6 +9,7 @@ const AddTodo = (props) => {
 
   const onChange = (e) => {
     setNewTodo({
+      id: uuidv4(),
       task: e.target.value,
       completed: false
     })
@@ -14,8 +17,11 @@ const AddTodo = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.addTodo(newTodo);
-    setNewTodo({});
+    //TODO: check input - if empty return an error message
+    if (!_.isEmpty(newTodo)) {
+      props.addTodo(newTodo);
+      setNewTodo({});
+    }
   }
 
   return (

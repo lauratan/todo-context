@@ -25,16 +25,10 @@ const App = () => {
     setTodo([...todos, todo]);
   }
 
-  const updateTodo = (id) => {
-    todos.map(todo => {
-      if (todo.id === id) todo.completed = true;
-    })
-  }
-
   return (
     <Container className="m-3">
       <AddTodo addTodo={addTodo}/>
-      <TodoList todos={todos} taskCount={todos.length} updateTod={updateTodo}/>
+      <TodoList todos={todos} taskCount={todos.length}/>
     </Container>
   )
 }
