@@ -24,7 +24,6 @@ const App = () => {
   
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
-
   const addTodo = (todo) => {
     dispatch({
       type: ADD_TODO,
