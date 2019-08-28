@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import TodoCounter from './TodoCounter';
+import TodoContext from '../context/todoContext';
 
-const TodoList = ({todos, taskCount}) => {
+const TodoList = () => {
+  const context = useContext(TodoContext);
   const onChange = (id) => {
     console.log(id);
   }
   
-  let list = todos.map((todo, i) => {
-    console.log('???', todo);
+  let list = context.todos.map((todo, i) => {
     return (
       <li key={i}>
         <input className="mr-2" type="checkbox" checked={todo.completed} onChange={()=> onChange(todo.id)}/> {todo.task}
@@ -18,7 +19,7 @@ const TodoList = ({todos, taskCount}) => {
     <div>
       <div className="todo-heading">
         <h2>Todo List: </h2>
-        <TodoCounter taskCount={taskCount} todos={todos}/>
+        <TodoCounter/>
       </div>
       <hr />
       <ul>

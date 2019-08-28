@@ -1,7 +1,10 @@
-import React, { useState, useReducer } from 'react';
+import React, {useReducer } from 'react';
 import {Container} from 'react-bootstrap';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
+import TodoContext from './context/todoContext';
+import todoReducer from './context/todoReducer';
+import {ADD_TODO} from './context/types';
 
 const App = () => {
   const initialState = {
@@ -18,18 +21,29 @@ const App = () => {
       }
     ]
   };
+  
+  const [state, dispatch] = useReducer(todoReducer, initialState);
 
-  const [todos, setTodo] = useState(initialState.todos);
 
   const addTodo = (todo) => {
-    setTodo([...todos, todo]);
+    dispatch({
+      type: ADD_TODO,
+      payload: todo
+    })
   }
 
   return (
-    <Container className="m-3">
-      <AddTodo addTodo={addTodo}/>
-      <TodoList todos={todos} taskCount={todos.length}/>
-    </Container>
+    <TodoContext.Provider
+      value={{
+        todos: state.todos,
+        addTodo
+      }}
+    >
+      <Container className="m-3">
+        <AddTodo/>
+        <TodoList />
+      </Container>
+    </TodoContext.Provider>
   )
 }
 

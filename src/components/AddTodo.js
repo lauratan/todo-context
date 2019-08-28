@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {Form, Button} from 'react-bootstrap';
 import uuidv4 from 'uuid/v4';
 import _ from 'lodash';
+import TodoContext from '../context/todoContext';
 
-const AddTodo = (props) => {
-  console.log(props);
+const AddTodo = () => {
   const [newTodo, setNewTodo] = useState({});
+  const context = useContext(TodoContext);
 
   const onChange = (e) => {
     setNewTodo({
@@ -19,7 +20,7 @@ const AddTodo = (props) => {
     e.preventDefault();
     //TODO: check input - if empty return an error message
     if (!_.isEmpty(newTodo)) {
-      props.addTodo(newTodo);
+      context.addTodo(newTodo);
       setNewTodo({});
     }
   }
