@@ -9,11 +9,14 @@ const TodoList = () => {
     context.toggleTodo(id);
   }
 
+  const deleteTodo = (id) => {
+    context.deleteTodo(id);
+  }
 
   let list = context.todos.map((todo, i) => {
     return (
       <li key={i} className="todo-list">
-        <input className="mr-2" type="checkbox" checked={todo.completed} onChange={()=> onChange(todo.id)}/> {todo.task} <i className="far fa-trash-alt" ></i>
+        <input className="mr-2" type="checkbox" checked={todo.completed} onChange={()=> onChange(todo.id)}/> {todo.task} <i className="far fa-trash-alt" onClick={()=> deleteTodo(todo.id)} ></i>
       </li>
     )
   })
