@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="m-3 container"
+  >
+    <div
+      class="mb-2"
+    >
+      <form
+        class=""
+      >
+        <div
+          class="form-group"
+        >
+          <label
+            class="form-label"
+          >
+            New Todo
+          </label>
+          <input
+            class="form-control"
+            placeholder="e.g Water plants"
+            type="text"
+            value=""
+          />
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Add New Todo
+        </button>
+      </form>
+    </div>
+    <div>
+      <div
+        class="todo-heading"
+      >
+        <h2>
+          Todo List: 
+        </h2>
+        <p
+          class="counter m-1"
+        >
+          2 Tasks
+        </p>
+      </div>
+      <hr />
+      <ul
+        class="todo-list"
+      >
+        <li
+          class="todo-item incomplete"
+        >
+          <input
+            class="mr-2"
+            type="checkbox"
+          />
+           Walk dog 
+          <i
+            class="far fa-trash-alt"
+          />
+        </li>
+        <li
+          class="todo-item completed"
+        >
+          <input
+            checked=""
+            class="mr-2"
+            type="checkbox"
+          />
+           Cook dinner 
+          <i
+            class="far fa-trash-alt"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
